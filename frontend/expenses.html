@@ -1,0 +1,186 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense History | Expense Tracker</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/expenses.css">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <span class="brand-icon">₦</span>
+                <span>ExpenseTracker</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="expenses.html" class="nav-link active">
+                    <span class="nav-icon">☷</span>
+                    <span>Expense History</span>
+                </a>
+
+                <a href="add-expense.html" class="nav-link">
+                    <span class="nav-icon">＋</span>
+                    <span>Add Expense</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button type="button" id="logout-button" class="logout-button">
+                    <span class="nav-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+
+                <div>
+                    <p class="header-greeting">Your spending records</p>
+                    <h1>Expense History</h1>
+                    <p class="header-subtitle">
+                        View and manage all your recorded expenses.
+                    </p>
+                </div>
+
+                <a href="add-expense.html" class="primary-button">
+                    <span>＋</span> Add Expense
+                </a>
+
+            </header>
+
+
+            <!-- ERROR MESSAGE -->
+            <div id="expenses-error"
+                 class="error-message"
+                 role="alert"
+                 hidden>
+            </div>
+
+
+            <!-- SUCCESS MESSAGE -->
+            <div id="expenses-success"
+                 class="success-message"
+                 role="status"
+                 hidden>
+            </div>
+
+
+            <!-- TOTAL EXPENSES -->
+            <section class="total-expenses-card">
+
+                <div>
+                    <p class="total-label">Total Expenses</p>
+                    <h2 id="total-expenses">₦0.00</h2>
+                    <p class="total-description">
+                        Total amount of all your recorded expenses
+                    </p>
+                </div>
+
+                <div class="total-icon">₦</div>
+
+            </section>
+
+
+            <!-- EXPENSE TABLE -->
+            <section class="expenses-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>All Expenses</h2>
+                        <p>Manage your expense records below.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- LOADING MESSAGE -->
+                <div id="expenses-loading" class="loading-state">
+                    Loading your expenses...
+                </div>
+
+
+                <!-- EMPTY MESSAGE -->
+                <div id="expenses-empty" class="empty-state" hidden>
+
+                    <div class="empty-icon">₦</div>
+
+                    <h3>No expenses yet</h3>
+
+                    <p>
+                        You haven't recorded any expenses.
+                        Start by adding your first expense.
+                    </p>
+
+                    <a href="add-expense.html" class="primary-button">
+                        ＋ Add Your First Expense
+                    </a>
+
+                </div>
+
+
+                <!-- TABLE CONTAINER -->
+                <div id="expenses-table-container"
+                     class="table-container"
+                     hidden>
+
+                    <table class="expenses-table">
+
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="expenses-table-body">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/expenses.js"></script>
+
+</body>
+</html>
