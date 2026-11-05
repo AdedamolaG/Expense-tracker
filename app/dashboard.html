@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Manage your expenses, monitor your spending and track your financial activities."
+    >
+
+    <title>Dashboard | Expense Tracker</title>
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Dashboard-specific styles -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="brand">
+                <span class="brand-icon">E</span>
+                <span>ExpenseTracker</span>
+            </a>
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebar-close"
+                aria-label="Close navigation menu"
+            >
+                &times;
+            </button>
+        </div>
+
+        <!-- Main navigation -->
+        <nav class="sidebar-nav" aria-label="Main navigation">
+
+            <p class="nav-heading">MENU</p>
+
+            <a href="dashboard.html" class="nav-link active"
+               aria-current="page">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="expenses.html" class="nav-link">
+                <span class="nav-icon">☷</span>
+                <span>Expense History</span>
+            </a>
+
+            <a href="add-expense.html" class="nav-link">
+                <span class="nav-icon">＋</span>
+                <span>Add Expense</span>
+            </a>
+
+
+        </nav>
+
+        <!-- Sidebar bottom -->
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+                <div class="user-avatar" id="sidebar-user-avatar">
+                    U
+                </div>
+
+                <div class="user-details">
+                    <h4 id="sidebar-user-name">Loading...</h4>
+                    <p>Personal Account</p>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="logout-btn"
+                id="logout-btn"
+            >
+                <span class="nav-icon">↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Mobile sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+
+    <!-- Main content -->
+    <main class="main-content">
+
+        <!-- Top navigation -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Open navigation menu"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <h2>Dashboard</h2>
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="current-date">
+                    <span>Today:</span>
+                    <strong id="current-date">Loading...</strong>
+                </div>
+
+                <div class="topbar-avatar" id="topbar-avatar">
+                    U
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard body -->
+        <section class="dashboard-container">
+
+            <div id="page-alert" class="page-alert hidden" role="alert" aria-live="polite"></div>
+
+            <!-- Welcome section -->
+            <div class="welcome-section">
+
+                <div>
+                    <p class="welcome-label">OVERVIEW</p>
+
+                    <h1>
+                        Welcome back,
+                        <span id="welcome-name">User</span>!
+                    </h1>
+
+                    <p>
+                        Here's an overview of your spending activities.
+                    </p>
+                </div>
+
+                <a href="add-expense.html" class="primary-btn">
+                    <span>＋</span>
+                    Add New Expense
+                </a>
+
+            </div>
+
+
+            <!-- Summary cards -->
+            <section class="summary-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Financial Summary</h3>
+                        <p>A quick look at your expenses</p>
+                    </div>
+                </div>
+
+
+                <div class="summary-grid">
+
+                    <!-- Total expenses -->
+                    <article class="summary-card">
+
+                        <div class="summary-card-top">
+                            <div class="summary-icon total-icon">
+                                ₦
+                            </div>
+
+                            <span class="summary-period">
+                                All time
+                            </span>
+                        </div>
+
+                        <p class="summary-label">Total Expenses</p>
+
+                        <h2 id="total-expenses">₦0.00</h2>
+
+                        <p class="summary-description">
+                            Your total recorded spending
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Category overview -->
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h3>Expense Categories</h3>
+                        <p>See how your expenses are distributed</p>
+                    </div>
+
+                </div>
+
+                <div class="content-card">
+
+                    <div class="category-list" id="category-list">
+
+                        <!-- JavaScript will display category information here -->
+
+                        <div class="empty-message" id="category-empty-state">
+                            No category information available yet.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Recent expense history -->
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h3>Recent Expenses</h3>
+                        <p>Your latest recorded transactions</p>
+                    </div>
+
+                    <a href="expenses.html" class="text-link">
+                        View all expenses →
+                    </a>
+
+                </div>
+
+
+                <div class="content-card table-card">
+
+                    <div class="table-responsive">
+
+                        <table class="expense-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="recent-expenses-body">
+
+                                <!-- JavaScript will insert recent expenses here -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- Display when there are no expenses -->
+                    <div
+                        class="empty-state"
+                        id="expense-empty-state"
+                    >
+                        <div class="empty-state-icon">₦</div>
+
+                        <h3>No expenses yet</h3>
+
+                        <p>
+                            You haven't recorded any expenses.
+                            Start by adding your first expense.
+                        </p>
+
+                        <a href="add-expense.html" class="primary-btn">
+                            Add Your First Expense
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+
+            <p>
+                &copy; <span id="current-year"></span>
+                ExpenseTracker. All rights reserved.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- JavaScript files -->
+    <script src="js/config.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/layout.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+
+</body>
+</html>

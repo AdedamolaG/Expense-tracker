@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense History | Expense Tracker</title>
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Expense History CSS -->
+    <link rel="stylesheet" href="css/expenses.css">
+</head>
+<body>
+
+    <div class="app-layout">
+
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="brand">
+                    <span class="brand-icon">E</span>
+                    <span>Expense<span class="brand-highlight">Tracker</span></span>
+                </a>
+
+                <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">
+                    &times;
+                </button>
+            </div>
+
+            <div class="sidebar-navigation">
+                <p class="nav-heading">MENU</p>
+
+                <nav class="nav-links">
+                    <a href="dashboard.html" class="nav-link">
+                        <span class="nav-icon">▦</span>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="expenses.html" class="nav-link active">
+                        <span class="nav-icon">↗</span>
+                        <span>Expense History</span>
+                    </a>
+
+                    <a href="add-expense.html" class="nav-link">
+                        <span class="nav-icon">＋</span>
+                        <span>Add Expense</span>
+                    </a>
+
+                </nav>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-user">
+                    <div class="user-avatar" id="sidebar-user-avatar">U</div>
+
+                    <div class="user-details">
+                        <p id="sidebar-user-name">User</p>
+                        <span>Personal Account</span>
+                    </div>
+                </div>
+
+                <button class="logout-btn" id="logout-btn">
+                    <span>↪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menu-toggle" aria-label="Open sidebar">
+                        ☰
+                    </button>
+
+                    <div>
+                        <h1>Expense History</h1>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date" id="current-date"></div>
+                    <div class="topbar-avatar" id="topbar-avatar">U</div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <section class="page-content">
+
+                <div id="page-alert" class="page-alert hidden" role="alert" aria-live="polite"></div>
+
+                <!-- Page Introduction -->
+                <div class="page-intro">
+                    <div>
+                        <h2>All Expenses</h2>
+                        <p>View and manage all your recorded expenses.</p>
+                    </div>
+
+                    <a href="add-expense.html" class="primary-btn">
+                        <span>＋</span>
+                        Add New Expense
+                    </a>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="expense-summary">
+
+                    <div class="summary-card">
+                        <div class="summary-icon total-icon">₦</div>
+                        <div>
+                            <p>Total Expenses</p>
+                            <h3 id="total-expenses">₦0.00</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Expense History Card -->
+                <section class="expense-history-card">
+
+                    <div class="history-header">
+                        <div>
+                            <h2>Transaction History</h2>
+                            <p>Manage and review your spending records.</p>
+                        </div>
+                    </div>
+
+                    <!-- Expenses Table -->
+                    <div class="table-container">
+
+                        <table class="expenses-table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="expenses-table-body">
+                                <!-- Expense records will be inserted here by JavaScript -->
+                            </tbody>
+                        </table>
+
+                        <!-- Empty State -->
+                        <div class="empty-state" id="empty-state" hidden>
+                            <div class="empty-icon">▤</div>
+                            <h3>No expenses found</h3>
+                            <p id="empty-message">
+                                You haven't recorded any expenses yet.
+                            </p>
+                            <a href="add-expense.html" class="primary-btn">
+                                Add Your First Expense
+                            </a>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <footer class="page-footer">
+                    <p>&copy; <span id="current-year"></span> Expense Tracker. All rights reserved.</p>
+                </footer>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Shared JavaScript -->
+    <script src="js/config.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/layout.js" defer></script>
+
+    <!-- Expense History JavaScript -->
+    <script src="js/expenses.js" defer></script>
+
+</body>
+</html>

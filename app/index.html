@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Track what you spend</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body data-page="landing">
+
+    <header class="landing-header">
+        <a href="index.html" class="landing-brand"><span class="landing-brand-mark">ET</span>Expense Tracker</a>
+
+        <nav class="landing-nav" aria-label="Main">
+            <span data-guest-only class="landing-nav">
+                <button type="button" class="secondary-btn" data-login>Log in</button>
+                <button type="button" class="primary-btn" data-signup>Sign up</button>
+            </span>
+            <a href="dashboard.html" class="primary-btn hidden" data-user-only>Go to dashboard</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="landing-hero">
+            <div id="landing-alert" class="landing-alert hidden" role="alert"></div>
+            <h1>Know where your money goes</h1>
+            <p>Expense Tracker helps you record what you spend, organise it by category and see your totals in one place.</p>
+
+            <div class="landing-actions">
+                <span data-guest-only class="landing-actions">
+                    <button type="button" class="primary-btn" data-signup>Create a free account</button>
+                    <button type="button" class="secondary-btn" data-login>Log in</button>
+                </span>
+                <a href="dashboard.html" class="primary-btn hidden" data-user-only>Go to dashboard</a>
+            </div>
+        </section>
+
+        <section class="landing-features" aria-label="Features">
+            <article class="landing-feature">
+                <h3>Add expenses quickly</h3>
+                <p>Enter the amount, category and date, and your expense is saved.</p>
+            </article>
+            <article class="landing-feature">
+                <h3>Organise with categories</h3>
+                <p>Group spending into categories such as food, transport and bills.</p>
+            </article>
+            <article class="landing-feature">
+                <h3>See your totals</h3>
+                <p>Your dashboard shows how much you have spent and where it went.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>Expense Tracker &middot; AltSchool Africa Cloud Engineering project</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

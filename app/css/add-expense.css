@@ -1,0 +1,618 @@
+
+/* =========================================
+   ADD EXPENSE PAGE
+========================================= */
+
+/* Main Layout */
+
+.app-layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.main-content {
+    width: calc(100% - 260px);
+    min-height: 100vh;
+    margin-left: 260px;
+    background: var(--background-color);
+}
+
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    height: 80px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.brand-highlight {
+    color: var(--primary-color);
+}
+
+.sidebar-close {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    color: var(--muted-color);
+    cursor: pointer;
+}
+
+.sidebar-navigation {
+    flex: 1;
+    padding: 28px 16px;
+}
+
+.nav-heading {
+    padding: 0 12px;
+    margin-bottom: 15px;
+    color: var(--muted-color);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 14px;
+    border-radius: 8px;
+    color: var(--muted-color);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background: var(--background-color);
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.nav-icon {
+    width: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.sidebar-bottom {
+    padding: 18px 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 8px 5px 16px;
+}
+
+.user-avatar,
+.topbar-avatar {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.user-details p {
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.user-details span {
+    color: var(--muted-color);
+    font-size: 11px;
+}
+
+.logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #fef2f2;
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    min-height: 80px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.topbar h1 {
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.topbar-date {
+    color: var(--muted-color);
+    font-size: 12px;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+
+/* =========================================
+   PAGE INTRODUCTION
+========================================= */
+
+.page-intro {
+    margin-bottom: 25px;
+}
+
+.page-intro h2 {
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.page-intro p {
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   EXPENSE FORM CARD
+========================================= */
+
+.expense-form-card {
+    padding: 28px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.form-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 22px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-heading-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 25px;
+}
+
+.form-card-header h2 {
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.form-card-header p {
+    color: var(--muted-color);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   FORM GRID
+========================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 9px;
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.required {
+    color: #dc2626;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--surface-color);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 45px;
+}
+
+.form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+.form-group small {
+    margin-top: 7px;
+    color: var(--muted-color);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   AMOUNT INPUT
+========================================= */
+
+.amount-input-wrapper {
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: var(--muted-color);
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.amount-input-wrapper input {
+    padding-left: 34px;
+}
+
+
+/* =========================================
+   FORM FEEDBACK
+========================================= */
+
+.form-message {
+    padding: 13px 15px;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.form-message[hidden] {
+    display: none;
+}
+
+.form-message.success {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.form-message.error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+
+/* =========================================
+   FORM ACTIONS
+========================================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 25px;
+    margin-top: 28px;
+    border-top: 1px solid var(--border-color);
+}
+
+.form-actions .primary-btn,
+.form-actions .secondary-btn {
+    min-width: 135px;
+    min-height: 43px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-actions button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   EXPENSE TIP
+========================================= */
+
+.expense-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-top: 22px;
+    padding: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--surface-color);
+}
+
+.tip-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.expense-tip h3 {
+    color: var(--text-color);
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.expense-tip p {
+    color: var(--muted-color);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PAGE FOOTER
+========================================= */
+
+.page-footer {
+    padding: 25px 0 10px;
+    text-align: center;
+    color: var(--muted-color);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+    .page-content {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .sidebar-close {
+        display: block;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .topbar {
+        padding: 15px 18px;
+    }
+
+    .topbar-date {
+        display: none;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(15, 23, 42, 0.45);
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .page-content {
+        padding: 20px 14px;
+    }
+
+    .expense-form-card {
+        padding: 20px 15px;
+    }
+
+    .form-card-header {
+        align-items: flex-start;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions .primary-btn,
+    .form-actions .secondary-btn {
+        width: 100%;
+    }
+}
