@@ -7,7 +7,9 @@ A serverless expense-tracking web application built on AWS. Users can securely s
 
 ## Live Application
 
-- **Frontend:** `https://d2dh2vf4u2i8dz.cloudfront.net/index.html`
+- **Frontend:** `https://d2dh2vf4u2i8dz.cloudfront.net`
+
+![Landing page](app/screenshots/Landing%20page.png)
 
 ## Overview
 
@@ -78,6 +80,8 @@ flowchart TD
 
 ### DynamoDB table: `Expenses`
 
+![DynamoDB Table](app/screenshots/DynamoDB.png)
+
 | Attribute | Type | Description |
 |---|---|---|
 | `userId` | String (Partition Key) | Cognito user's `sub` identifier |
@@ -100,6 +104,7 @@ Each expense belongs to a Cognito user. The backend uses the authenticated user'
 - Other
 
 ## API Endpoints
+![API Gateway](app/screenshots/API%20Gateway.png)
 
 All endpoints require a valid Cognito JWT.
 
@@ -248,10 +253,10 @@ AI tools were used to support parts of the code-writing and development process.
 
 ## Contributors
 
-- [Contributor 1](https://github.com/CesarNignan)
-- [Contributor 2](https://github.com/chinonsoemma)
-- [Contributor 3](https://github.com/oyesolaibrahim)
-- [Contributor 4](https://github.com/olatunde-peter)
+- [Cesar Nignan](https://github.com/CesarNignan)
+- [Nonso Emmanuel](https://github.com/chinonsoemma)
+- [Ibrahim Oyesola](https://github.com/oyesolaibrahim)
+- [Olatunde Peter](https://github.com/olatunde-peter)
 
 ## Acknowledgements
 
